@@ -63,3 +63,14 @@ console.log("azmp202" && "hello" && "javascript"); //javascript
 console.log(5 > 3 || "hello" || null); //true
 console.log(undefined || "hello" || null); //hello
 console.log("azmp202" || "hello" || "javascript"); //azmp202
+
+let a = 8;
+
+// a++;
+// a = a + 1;
+// console.log(a++);
+// console.log(a);
+
+console.log(++a);
+console.log(a);
+// console.log(a);
