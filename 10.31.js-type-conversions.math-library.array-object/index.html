@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="change">Change Background</button>
+
+    <h2 class="color">rgb(255, 255, 255)</h2>
+    <script src="./type-conversions.js"></script>
+
+    <script>
+      const btn = document.querySelector(".change");
+      const colorValue = document.querySelector(".color");
+
+      btn.addEventListener("click", function () {
+        // rgb(red, green, blue)
+        let redValue = Math.round(Math.random() * 255);
+        let greenValue = Math.round(Math.random() * 255);
+        let blueValue = Math.round(Math.random() * 255);
+
+        // console.log(redValue, greenValue, blueValue);
+
+        document.body.style.backgroundColor = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+        colorValue.textContent = `rgb(${redValue}, ${greenValue}, ${blueValue})`;
+      });
+    </script>
+  </body>
+</html>
