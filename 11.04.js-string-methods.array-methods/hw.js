@@ -118,28 +118,27 @@ const moveElement = (arr, currentIndex, newIndex) => {
     newIndex >= arr.length ||
     newIndex < 0
   ) {
-    return "daxil etdiyiniz indexlər invaliddir!";
+    return "Daxil etdiyiniz indexlər invaliddir!";
   }
 
-  // let moveItem = arr[currentIndex];
-  let result = [];
+  const element = arr[currentIndex];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (i === currentIndex) {
-      continue;
+  if (currentIndex < newIndex) {
+    for (let i = currentIndex; i < newIndex; i++) {
+      arr[i] = arr[i + 1];
     }
-
-    if (i === newIndex) {
-      result.push(arr[i], arr[currentIndex]);
-    } else {
-      result.push(arr[i]);
+    arr[newIndex] = element;
+  } else {
+    for (let i = currentIndex; i > newIndex; i--) {
+      arr[i] = arr[i - 1];
     }
+    arr[newIndex] = element;
   }
 
-  return result;
+  return arr;
 };
 console.log(moveElement(["a", "b", "c", "d"], 1, 3)); // ["a", "c", "d", "b"]
 
-console.log(moveElement([10, 20, 30, 40, 50], 0, 2));
-console.log(moveElement([10, 20, 30, 40, 50], 2, 4));
-console.log(moveElement([10, 20, 30, 40, 50], 4, 0));
+console.log(moveElement([10, 20, 30, 40, 50], 0, 2)); //[ 20, 30, 10, 40, 50 ]
+console.log(moveElement([10, 20, 30, 40, 50], 2, 4)); //[ 10, 20, 40, 50, 30 ]
+console.log(moveElement([10, 20, 30, 40, 50], 4, 0)); //[ 50, 10, 20, 30, 40 ]
