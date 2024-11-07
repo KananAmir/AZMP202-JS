@@ -1,0 +1,148 @@
+1)Rectangle adında bir class yaradın.
+Rectangle class-ına calculateArea() adlı bir metod daxil edin. Bu metod width və height dəyərlərini istifadə edərək düzbucaqlının sahəsini hesablayacaq və geri qaytaracaq.
+
+Rectangle class-ına calculatePerimeter() adlı başqa bir metod daxil edin.
+Bu metod width və height dəyərlərini istifadə edərək düzbucaqlının perimetrini hesablayacaq və geri qaytaracaq.
+
+Reactangle sinifinin instanceni yaradın və onun sahəsini və perimetrini hesablayın.
+
+Nümunə:
+calculateAreaclass Rectangle {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+
+   
+    () {
+       ...
+    }
+
+    calculatePerimeter() {
+       ...
+    }
+}
+
+//instance of Reactangle class
+const myRectangle = new Rectangle(5, 10);
+
+console.log("Area of the rectangle:", myRectangle.calculateArea()); //  50
+console.log("Perimeter of the rectangle:", myRectangle.calculatePerimeter()); // 30
+
+
+
+2)
+
+2)
+BankAccount Class-ı Yaratmaq:
+
+BankAccount adlı bir class yaradın.
+Bu class-da aşağıdakı xüsusiyyətlər olsun:
+accountNumber (hesab nömrəsi) — Hesabın nömrəsi (string).
+balance (balans) — Hesabın balansı (rəqəm, ilkin olaraq 0 olaraq təyin edilsin).
+Metodlar:
+
+deposit(amount): Bu metod, istifadəçiyə hesabına müəyyən məbləği əlavə etməyə imkan verəcək.
+Şərt: Əgər əlavə ediləcək məbləğ müsbət deyilsə (sıfır və ya mənfi), xəta mesajı verilməlidir.
+withdraw(amount): Bu metod, istifadəçiyə hesabından müəyyən məbləği çıxarmağa imkan verəcək.
+Şərt 1: Çıxarılacaq məbləğ müsbət olmalıdır.
+Şərt 2: Hesabda kifayət qədər vəsait yoxdursa, xəta mesajı verilməlidir.
+Şərt 3: Əgər çıxarılacaq məbləğ sıfır və ya mənfi olarsa, xəta mesajı verilməlidir.
+Nümunələrin Yaradılması:
+
+BankAccount class-ından iki nümunə yaradın:
+Birinci hesab üçün:
+Hesab nömrəsi: "101"
+İlkin balans: 1000
+İkinci hesab üçün:
+Hesab nömrəsi: "102"
+İlkin balans: 500
+Əməliyyatlar:
+
+Hesab 101 (Alice):
+500 məbləği əlavə etsin.
+200 məbləği çıxarsın.
+Hesab 102 (Bob):
+100 məbləği çıxarsın.
+700 məbləği əlavə etsin.
+Əməliyyatların Nəticələri:
+
+Hər iki hesab üzrə əməliyyatları yerinə yetirəndən sonra hər birinin balansını çap edin.
+Əgər əməliyyat düzgün yerinə yetirilməyibsə, müvafiq xəta mesajını göstərmək vacibdir.
+
+Nümunə:
+class BankAccount {
+    constructor(accountNumber, balance = 0) {
+      ...
+    }
+   
+    deposit(amount) {
+       ...
+    }
+
+    withdraw(amount) {
+        ...
+    }
+}
+
+const account1 = new BankAccount('101', 1000); // Hesab 101: Alice ilə 1000 balans
+const account2 = new BankAccount('102', 500);  // Hesab 102: Bob ilə 500 balans
+
+// Alice-in əməliyyatları
+account1.deposit(500);  // Alice 500 əlavə edir
+account1.withdraw(200); // Alice 200 çıxarır
+
+// Bob-un əməliyyatları
+account2.withdraw(100); // Bob 100 çıxarır
+account2.deposit(700);  // Bob 700 əlavə edir
+
+
+3) 
+3)
+Aşağıdakı parameter-lrə sahib bir Human class-ı yaradın.
+Human class
+- Name,
+- Surname,
+- Age (default sıfır),
+- gender
+- nationality
+- getFullName() - method
+- getBirthYear() - method - new Date() - currentYear
+
+Human classından miras alan User class-ı yaradın.
+User class
+- Username
+- Email
+- isAdmin (true/false)
+- isLogged (true/false) => default false (constructor-da gondermirsiniz bu deyeri)
+- password (minimum 5 simvol olmalidir)
+- bio (maxlength 30 ola biler)
+- changePassword() - method-u var ve 2 parameter qebul edir, currentPassword ve newPassword => yoxlayirki eger currentPassword dogrudursa,
+newPassword-u teyin edib update edir, eger yalnishdirsa, kohne password oldugu kimi qalir ve alert verir
+Eger, kohne ve yeni password eyni olarsa, 'new password and current password is the same' return etmelidir
+- changeEmail() - method parameter olaraq users array-i ve newEmail qebul etmelidir ve newEmail-in bashqa user-de olub-olmamasini yoxlayir.
+Eger unique-dirse o zaman email-i update edir, eger unique deyilse, oldugu kimi qalir ve alert verir.
+Eger, kohne ve yeni password eyni olarsa, 'new password and current password is the same' return etmelidir
+User class-ından istifadə edib bir neçə user yaradın və bir users array-inə yığın.
+
+Global functions.
+
+1. sortUsersByUsername() - parameter array qəbul edir və geriyə username-ə görə A-Z sort edir.
+
+2. filterByBirthYear() - parameter olaraq users array-i, bir year qəbul edir və həmin ildən böyük olan user-ləri filter edir.
+
+3. Login() - parameter olaraq users array-i, bir username və bir password qəbul edir. Və əgər
+a. username-də bir user tapılmazsa, 'user not found!'
+b. username ve ya password yalnish olarsa, 'incorrect username or password'
+c. her ikisi dogru olarsa, ancaq her hansi bir user-in isLogged deyeri true olarsa, o zaman 'another user currently logged in' return etmelidir
+d. her ikisi dogru olarsa hemin user-in isLogged deyeri true olur ve alert('successfully logged in') verir
+3. LogOut() - parameter olaraq bir users array-i ve username qebul, Eger,
+a. Daxil olunmush username-de bir user tapmazsa 'user not found'
+b. Daxil olunmush username-de user tapsa, ancaq isLogged deyeri false olarsa o zaman, 'user did not logged in to log out!'
+c. Daxil olunmush username-de user tapsa ve isLogged deyeri true olarsa o zaman, user-in isLogged deyeri false olur ve 'successfully' logged out
+
+4. CreateUser() - parameter olaraq bir array ve bir User obj qebul edir ve hemin user-i array-e elave edir
+
+
+5. DeleteUser() - parameter olaraq bir array ve bir username qebul edir ve daxil olunmush username-de user tapilarsa hemin User-i silir,
+tapmazsa o zaman 'user not found' return edir.
