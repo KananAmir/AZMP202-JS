@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style: none;
+      }
+      body {
+        height: 200vh;
+      }
+
+      header {
+        background-color: teal;
+        padding: 1.5rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transition: all 1s;
+      }
+      .header-scroll {
+        background-color: transparent;
+        padding: 1rem;
+        border-bottom: 1px solid;
+      }
+
+      .header-scroll ul li a {
+        color: #000;
+      }
+      nav ul {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+      nav ul li a {
+        color: #fff;
+        font-size: 1.5rem;
+      }
+      h2 {
+        margin-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li>
+            <a href="home.html">Home</a>
+          </li>
+          <li>
+            <a href="about.html">About</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <hr />
+    <h2>Home Page</h2>
+
+    <script>
+      //   window.addEventListener("load", function () {
+      //     console.log("Home page loaded");
+      //   });
+      //   window.addEventListener("DOMContentLoaded", function () {
+      //     console.log("Home page DOMContentLoaded event");
+      //   });
+      //   window.addEventListener("unload", function () {
+      //     console.log("About page unloaded");
+      //   });
+
+      const header = document.querySelector("header");
+
+      window.addEventListener("scroll", function (event) {
+        // console.log("scrolled");
+        // console.log(event);
+        // console.log(window.scrollY);
+
+        //custom toggle
+        // if (window.scrollY > 0) {
+        //   header.classList.add("header-scroll");
+        // } else {
+        //   header.classList.remove("header-scroll");
+        // }
+
+        header.classList.toggle("header-scroll", window.scrollY > 0);
+      });
+    </script>
+  </body>
+</html>
