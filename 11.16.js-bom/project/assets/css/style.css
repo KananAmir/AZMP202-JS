@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.fa-solid {
+  cursor: pointer;
+}
+
+.fa-solid.fa-pen-to-square {
+  color: green;
+}
+
+.fa-solid.fa-circle-info {
+  color: blue;
+}
+
+.error {
+  color: red;
+}
