@@ -3,6 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- bootstrap cdn -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -74,35 +83,37 @@
       </div>
     </header>
 
-    <section id="products">
+    <section id="basket-page">
       <div class="container">
-        <div class="products row">
-          <div class="col-12 col-md-6 col-lg-3 mb-3">
-            <!-- <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <p class="price">Price: $<span>145</span></p>
-                <div class="icons">
-                  <button class="btn btn-outline-warning">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                  </button>
+        <div class="basket-page">
+          <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Title</th>
+                <th>Unit Price</th>
+                <th>Sub Price</th>
+                <th>Increment</th>
+                <th>count</th>
+                <th>Decrement</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
 
-                  <button class="btn btn-outline-danger">
-                    <i class="fa-regular fa-heart"></i>
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
-                  <button class="btn btn-outline-primary">
-                    <i class="fa-solid fa-circle-info"></i>
-                  </button>
-                </div>
-              </div>
-            </div> -->
-          </div>
+            <tbody>
+              <!-- <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr> -->
+            </tbody>
+          </table>
+
+          <div>Total Price: <span class="total-price">0</span></div>
         </div>
       </div>
     </section>
@@ -114,6 +125,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script src="./assets/js/main.js" type="module"></script>
+    <script src="./assets/js/basket.js" type="module"></script>
   </body>
 </html>
