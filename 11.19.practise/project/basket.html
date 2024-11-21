@@ -48,7 +48,10 @@
               >
             </li>
             <li>
-              <a href="favorites.html">Favorites</a>
+              <a href="favorites.html"
+                >Favorites
+                <sup style="font-weight: bold" class="favs-count">0</sup></a
+              >
             </li>
             <li class="nav-item dropdown">
               <a
@@ -86,22 +89,27 @@
     <section id="basket-page">
       <div class="container">
         <div class="basket-page">
-          <table class="table table-success table-striped">
-            <thead>
-              <tr>
-                <th>Photo</th>
-                <th>Title</th>
-                <th>Unit Price</th>
-                <th>Sub Price</th>
-                <th>Increment</th>
-                <th>count</th>
-                <th>Decrement</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
+          <p class="basket-info text-danger text-center fs-5 d-none">
+            There is no item in basket!
+          </p>
+          <div class="basket-table d-block">
+            <h3>Total Price: <span class="total-price">0</span></h3>
+            <table class="table table-success table-striped">
+              <thead>
+                <tr>
+                  <th>Photo</th>
+                  <th>Title</th>
+                  <th>Unit Price</th>
+                  <th>Decrement</th>
+                  <th>count</th>
+                  <th>Increment</th>
+                  <th>Sub Total</th>
+                  <th>Remove</th>
+                </tr>
+              </thead>
 
-            <tbody>
-              <!-- <tr>
+              <tbody>
+                <!-- <tr>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -110,10 +118,12 @@
                 <td></td>
                 <td></td>
               </tr> -->
-            </tbody>
-          </table>
-
-          <div>Total Price: <span class="total-price">0</span></div>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-danger clear-all">Clear All</button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,48 +1,19 @@
 import { products } from "./data.js";
-import { getDataFromLocalStorage, setDataToLocalStorage } from "./helpers.js";
+import {
+  calcBasketCount,
+  calcFavsCount,
+  getDataFromLocalStorage,
+  setDataToLocalStorage,
+  showUserInfo,
+} from "./helpers.js";
 
-const logoutBtn = document.querySelector(".dropdown-menu .logout");
-const loginBtn = document.querySelector(".dropdown-menu .login");
-const registerBtn = document.querySelector(".dropdown-menu .register");
 const productsWrapper = document.querySelector(".products");
-const userName = document.querySelector(".user-name");
 
 const users = getDataFromLocalStorage("users") || [];
 
 const user = users.find((u) => u.isLogged);
 
 // console.log(user);
-
-if (user) {
-  userName.textContent = user.userName;
-} else {
-  userName.textContent = "User";
-}
-window.addEventListener("DOMContentLoaded", function () {
-  if (user) {
-    logoutBtn.classList.replace("d-none", "d-block");
-    loginBtn.classList.replace("d-inline", "d-none");
-    registerBtn.classList.replace("d-inline", "d-none");
-  } else {
-    logoutBtn.classList.replace("d-block", "d-none");
-    loginBtn.classList.replace("d-none", "d-inline");
-    registerBtn.classList.replace("d-none", "d-inline");
-  }
-});
-
-logoutBtn.addEventListener("click", function () {
-  user.isLogged = false;
-  setDataToLocalStorage("users", users);
-  Swal.fire({
-    position: "top-end",
-    icon: "success",
-    title: "Logged out",
-    showConfirmButton: false,
-    timer: 1500,
-  }).then(() => {
-    window.location.replace("login.html");
-  });
-});
 
 function drawCards(arr) {
   productsWrapper.innerHTML = "";
@@ -69,17 +40,27 @@ function drawCards(arr) {
 
     price.innerHTML = `Price: $<span>${product.price}</span>`;
 
+    const bool = user?.favorites.find((q) => q == product.id);
+    // console.log(bool);
+
     icons.innerHTML = `
                 <div class="icons">
-                  <button class="btn btn-outline-warning basket" data-id="${product.id}">
+                  <button class="btn btn-outline-warning basket" data-id="${
+                    product.id
+                  }">
                     <i class="fa-solid fa-cart-shopping"></i>
                   </button>
 
-                  <button class="btn btn-outline-danger wishlist">
-                    <i class="fa-regular fa-heart"></i>
-                    <!-- <i class="fa-solid fa-heart"></i> -->
+                  <button class="btn btn-outline-danger wishlist" data-id="${
+                    product.id
+                  }">
+                    <i class="${
+                      !bool ? "fa-regular fa-heart" : "fa-solid fa-heart"
+                    }"></i>
                   </button>
-                  <a class="btn btn-outline-primary" href="details.html?id=${product.id}">
+                  <a class="btn btn-outline-primary" href="details.html?id=${
+                    product.id
+                  }">
                     <i class="fa-solid fa-circle-info"></i>
                   </a>
                 </div>
@@ -94,6 +75,7 @@ function drawCards(arr) {
   });
 
   const allBasketBtns = document.querySelectorAll(".basket");
+  const allWishlistBtns = document.querySelectorAll(".wishlist");
   allBasketBtns.forEach((btn) => {
     btn.addEventListener("click", function () {
       const pId = this.getAttribute("data-id");
@@ -112,6 +94,35 @@ function drawCards(arr) {
       }
     });
   });
+
+  allWishlistBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const pId = this.getAttribute("data-id");
+      if (user) {
+        // console.log(this.children[0]);
+        // console.log(this.firstElementChild);
+
+        if (this.firstElementChild.classList.contains("fa-regular")) {
+          this.firstElementChild.classList.add("fa-solid");
+          this.firstElementChild.classList.remove("fa-regular");
+        } else {
+          this.firstElementChild.classList.add("fa-regular");
+          this.firstElementChild.classList.remove("fa-solid");
+        }
+        toggleWishlist(pId);
+      } else {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Login olun!",
+          showConfirmButton: false,
+          timer: 1500,
+        }).then(() => {
+          window.location.replace("login.html");
+        });
+      }
+    });
+  });
 }
 
 function addToBasket(id) {
@@ -124,25 +135,29 @@ function addToBasket(id) {
     found.count++;
   }
 
-  calcBasketCount();
+  calcBasketCount(user);
   setDataToLocalStorage("users", users);
 
   //   console.log(user);
 }
-drawCards(products);
 
-// function calcBasketCount() {
-//   const basketCount = document.querySelector(".basket-count");
+function toggleWishlist(id) {
+  const idx = user.favorites.findIndex((item) => item == id);
 
-//   let count = user.basket.length;
-//   basketCount.textContent = count;
-// }
+  if (idx === -1) {
+    user.favorites.push(id);
+  } else {
+    user.favorites.splice(idx, 1);
+  }
 
-function calcBasketCount() {
-  const basketCount = document.querySelector(".basket-count");
-
-  let count = user.basket.reduce((sum, item) => sum + item.count, 0);
-  basketCount.textContent = count;
+  setDataToLocalStorage("users", users);
+  calcFavsCount(user);
 }
-
-calcBasketCount();
+window.addEventListener("DOMContentLoaded", function () {
+  if (user) {
+    showUserInfo(user, users);
+    calcBasketCount(user);
+    calcFavsCount(user);
+  }
+  drawCards(products);
+});

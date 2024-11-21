@@ -34,7 +34,8 @@ ul li a,
 
 #products,
 #details,
-.basket-page {
+#basket-page,
+#favorites-page {
   margin-top: 120px;
 }
 
