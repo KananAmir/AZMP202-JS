@@ -24,7 +24,6 @@
                 <th>ID</th>
                 <th>Company Name</th>
                 <th>Contact Title</th>
-                <th>Phone</th>
                 <th>Street</th>
                 <th>City, Country</th>
                 <th>ACTIONS</th>
@@ -34,6 +33,94 @@
           </table>
           <div class="spinner d-flex justify-content-center">
             <span class="loader"></span>
+          </div>
+
+          <!-- <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#edit-modal"
+          >
+            Launch demo modal
+          </button> -->
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="edit-modal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Customer Edit Form
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form class="w-75 m-auto" id="edit-form">
+                    <div class="mb-3">
+                      <label for="company" class="form-label"
+                        >Company Name</label
+                      >
+                      <input type="text" class="form-control" id="company" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="contact" class="form-label"
+                        >Contact Title</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="contact"
+                        required
+                      />
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="street" class="form-label">Street</label>
+                      <input type="text" class="form-control" id="street" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="city" class="form-label">City</label>
+                      <input type="text" class="form-control" id="city" />
+                    </div>
+                    <div class="mb-3">
+                      <label for="country" class="form-label">Country</label>
+                      <input type="text" class="form-control" id="country" />
+                    </div>
+                    <!-- 
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button> -->
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="submit"
+                    class="btn btn-primary edit-submit-btn"
+                    form="edit-form"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
