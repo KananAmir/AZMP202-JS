@@ -1,0 +1,110 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "johndoe@example.com",
+      "password": "hashed_password",
+      "role": "user",
+      "profilePicture": "https://example.com/profile.jpg",
+      "createdAt": "2024-11-25",
+      "basket": [
+        {
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "productId": 2,
+          "quantity": 1
+        }
+      ],
+      "favorites": [
+        {
+          "productId": 3
+        },
+        {
+          "productId": 1
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "3",
+      "name": "Laptop Pro",
+      "description": "Powerful laptop for professional work and gaming.",
+      "price": 1499.99,
+      "stock": 30,
+      "discount": 15,
+      "categoryId": "3",
+      "image": "https://cdn.mos.cms.futurecdn.net/3kcgKLkfPRbskpsYzW239d-1200-80.jpg",
+      "createdAt": "2024-11-22"
+    },
+    {
+      "id": "2",
+      "name": "Smartphone Plus",
+      "description": "Flagship smartphone with all the latest features.",
+      "price": 899.99,
+      "stock": 50,
+      "discount": 10,
+      "categoryId": 3,
+      "image": "https://www.techadvisor.com/wp-content/uploads/2024/11/best-phones-2024-11.jpg?quality=50&strip=all",
+      "createdAt": "2024-11-21"
+    },
+    {
+      "id": "1",
+      "name": "Gaming Headset X",
+      "description": "Comfortable headset with immersive sound for gaming.",
+      "price": 199.99,
+      "stock": 100,
+      "discount": 5,
+      "categoryId": 4,
+      "image": "https://assets-prd.ignimgs.com/2022/09/18/xbox-series-headsets-1663500258057.jpg",
+      "createdAt": "2024-11-20"
+    },
+    {
+      "id": "5",
+      "name": "Smartwatch Ultra",
+      "description": "Advanced smartwatch with fitness tracking and notifications.",
+      "price": 299.99,
+      "stock": 75,
+      "discount": 20,
+      "categoryId": 3,
+      "image": "https://cdn.mos.cms.futurecdn.net/FkGweMeB7hdPgaSFQdgsfj.jpg",
+      "createdAt": "2024-11-19"
+    },
+    {
+      "id": "6",
+      "name": "4K Television",
+      "description": "Ultra HD 4K television with vivid colors and clarity.",
+      "price": 899.99,
+      "stock": 25,
+      "discount": 25,
+      "categoryId": 2,
+      "image": "https://d3fppka8t5rpz7.cloudfront.net/filters:format(webp)/dev/images/81mLFIaCYwL._SL1500_.jpg",
+      "createdAt": "2024-11-18"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics",
+      "createdAt": "2024-11-25"
+    },
+    {
+      "id": "2",
+      "name": "Smartphones",
+      "createdAt": "2024-11-25"
+    },
+    {
+      "name": "Gaming",
+      "createdAt": "2024-11-26",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "name": "Accessories",
+      "createdAt": "2024-11-25"
+    }
+  ]
+}
