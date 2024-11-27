@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .drag-item {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        margin-bottom: 1rem;
+      }
+      .drop-zone {
+        width: 150px;
+        height: 150px;
+        background-color: teal;
+      }
+      .hide {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="drag-item" draggable="true" id="drag-item">dragable item</div>
+    <div class="drop-zone">drop zone</div>
+
+    <script>
+      const dragItem = document.querySelector("#drag-item");
+      const dropZone = document.querySelector(".drop-zone");
+
+      //dragstart, dragend, drag, dragenter, dragover, dragleave, drop
+
+      dragItem.addEventListener("dragstart", function (e) {
+        // console.log("dragstart");
+
+        console.log(e.target.id);
+
+        e.dataTransfer.setData("text/plain", e.target.id);
+
+        setTimeout(() => {
+          e.target.classList.add("hide");
+        }, 0);
+      });
+
+      dragItem.addEventListener("dragend", function (e) {
+        // console.log("dragend");
+        e.target.classList.remove("hide");
+      });
+      dragItem.addEventListener("drag", function (e) {
+        // console.log("drag");
+      });
+
+      dropZone.addEventListener("dragenter", function (e) {});
+      dropZone.addEventListener("dragover", function (e) {
+        e.preventDefault();
+      });
+      dropZone.addEventListener("dragleave", function (e) {});
+      dropZone.addEventListener("drop", function (e) {
+        e.preventDefault();
+        const id = e.dataTransfer.getData("text/plain");
+        const dragable = document.getElementById(id);
+        e.target.before(dragable);
+      });
+    </script>
+  </body>
+</html>

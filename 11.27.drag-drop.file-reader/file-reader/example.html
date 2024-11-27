@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .seleted-image {
+        width: 300px;
+        height: 300px;
+        border: 2px solid orange;
+      }
+      .seleted-image img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="">choose profile picture</label>
+    <input type="file" multiple id="profile-pic" accept="image/*" />
+
+    <div class="seleted-image">
+      <img src="" alt="" class="profile" />
+    </div>
+
+    <script>
+      const profilePicture = document.querySelector(".profile");
+      const profilePictureInput = document.querySelector("#profile-pic");
+
+      const dropZone = document.querySelector(".seleted-image");
+      profilePictureInput.addEventListener("change", function (e) {
+        const file = e.target.files[0];
+        //   console.log(file);
+
+        if (file && file.type.startsWith("image")) {
+          const reader = new FileReader();
+
+          reader.readAsDataURL(file);
+
+          reader.onload = function () {
+            console.log(reader.result);
+
+            profilePicture.src = reader.result;
+            //   profilePicture.setAttribute("src", reader.result);
+          };
+          reader.onerror = function () {
+            console.log(reader.error);
+          };
+        } else {
+          alert("yalnız image seçə bilərsiz!");
+        }
+      });
+
+      //   dropZone.addEventListener("dragenter", function (e) {
+      //     e.preventDefault();
+      //   });
+
+      dropZone.addEventListener("dragover", function (e) {
+        e.preventDefault();
+      });
+      dropZone.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        const file = e.dataTransfer.files[0];
+
+        if (file && file.type.startsWith("image")) {
+          const reader = new FileReader();
+
+          reader.readAsDataURL(file);
+
+          reader.onload = function () {
+            // console.log(reader.result);
+            profilePicture.src = reader.result;
+          };
+          reader.onerror = function () {
+            console.log(reader.error);
+          };
+        }
+      });
+    </script>
+  </body>
+</html>

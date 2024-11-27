@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag Drop</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .boxes {
+        display: flex;
+        gap: 1rem;
+      }
+      .boxes .box {
+        width: 220px;
+        height: 220px;
+        border: 3px solid;
+        padding: 1rem;
+      }
+      .box .drag-item {
+        background-image: url("https://picsum.photos/200/200");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 100%;
+        border: 5px solid orange;
+      }
+      .hide {
+        display: none;
+      }
+      .boxes .hover {
+        background-color: grey;
+        border: 5px dashed red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="boxes">
+      <div class="box">
+        <div class="drag-item" draggable="true" id="drag-item"></div>
+      </div>
+      <div class="box"></div>
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+
+    <!-- TYPES: text/plain, text/html, application/json, files  və s.-->
+
+    <script>
+      const dragItem = document.querySelector("#drag-item");
+      const dropZones = document.querySelectorAll(".box");
+
+      dragItem.addEventListener("dragstart", function (e) {
+        e.dataTransfer.setData("text/plain", e.target.id);
+        setTimeout(() => {
+          e.target.classList.add("hide");
+        }, 0);
+      });
+      dragItem.addEventListener("dragend", function (e) {
+        e.target.classList.remove("hide");
+      });
+
+      for (zone of dropZones) {
+        zone.addEventListener("dragenter", function (e) {
+          e.preventDefault();
+          e.target.classList.add("hover");
+        });
+        zone.addEventListener("dragleave", function (e) {
+          e.target.classList.remove("hover");
+        });
+        zone.addEventListener("dragover", function (e) {
+          e.preventDefault();
+        });
+        zone.addEventListener("drop", function (e) {
+          e.preventDefault();
+          const id = e.dataTransfer.getData("text/plain");
+          const dragable = document.getElementById(id);
+          e.target.appendChild(dragable);
+          e.target.classList.remove("hover");
+        });
+      }
+    </script>
+  </body>
+</html>
