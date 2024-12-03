@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <title>Register Page</title>
+  </head>
+
+  <body>
+    <main>
+      <section id="register" class="py-5">
+        <div class="container">
+          <hr />
+          <form
+            enctype="multipart/form-data"
+            class="mx-auto col-md-5"
+            id="register-form"
+          >
+            <!-- Username -->
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-user"></i>
+                </span>
+                <input
+                  id="username"
+                  class="form-control"
+                  type="text"
+                  placeholder="Username"
+                />
+              </div>
+              <div id="username-error" class="text-danger mt-1"></div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-envelope"></i>
+                </span>
+                <input
+                  id="email"
+                  class="form-control"
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+              <div id="email-error" class="text-danger mt-1"></div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="pass" class="form-label">Password</label>
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-lock"></i>
+                </span>
+                <input
+                  id="pass"
+                  class="form-control"
+                  type="password"
+                  placeholder="Password"
+                />
+              </div>
+              <div id="pass-error" class="text-danger mt-1"></div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+              <label for="confirm-pass" class="form-label"
+                >Confirm Password</label
+              >
+              <div class="input-group">
+                <span class="input-group-text">
+                  <i class="fas fa-lock"></i>
+                </span>
+                <input
+                  id="confirm-pass"
+                  class="form-control"
+                  type="password"
+                  placeholder="Confirm Password"
+                />
+              </div>
+              <div id="confirm-pass-error" class="text-danger mt-1"></div>
+            </div>
+
+            <!-- Profile Picture -->
+            <div class="mb-3">
+              <label for="profile-picture" class="form-label"
+                >Profile Picture</label
+              >
+              <input
+                id="profile-picture"
+                class="form-control"
+                type="file"
+                name="profile"
+              />
+              <div id="profile-picture-error" class="text-danger mt-1"></div>
+            </div>
+
+            <!-- Terms & Conditions -->
+            <div class="mb-3 form-check">
+              <input
+                id="accept-terms-of-use"
+                type="checkbox"
+                class="form-check-input"
+              />
+              <label class="form-check-label" for="accept-terms-of-use">
+                I agree to the
+                <a
+                  class="text-success fw-bold"
+                  href="https://spotify.com"
+                  target="_blank"
+                  >terms and conditions</a
+                >
+              </label>
+              <div
+                id="accept-terms-of-use-error"
+                class="text-danger mt-1"
+              ></div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid">
+              <button
+                id="register-btn"
+                class="btn btn-success text-white"
+                type="submit"
+              >
+                Register
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script src="register.js"></script>
+  </body>
+</html>
